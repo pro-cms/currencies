@@ -1,8 +1,4 @@
-// Copyright 2019 Ismael Jiménez. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
-library finance;
+library currencies_updated;
 
 import 'package:meta/meta.dart';
 
@@ -15,11 +11,11 @@ class Currency {
   final int minorFraction;
 
   const Currency(
-      {this.isoCode,
-      this.fullName,
-      this.symbol,
-      this.minorUnit,
-      this.minorFraction});
+      {required this.isoCode,
+      required this.fullName,
+      required this.symbol,
+      required this.minorUnit,
+      required this.minorFraction});
 
   // Implement toString to make it easier to see information about
   // each currency when using the print statement.
@@ -71,7 +67,7 @@ enum Iso4217Code {
 /// Note: In case of an invalid iso code string, USD is given per default.
 Iso4217Code isoCodeFromStr(String isoCodeStr) {
   for (Iso4217Code isoCode in currencies.keys) {
-    if (currencies[isoCode].isoCode == isoCodeStr.toUpperCase()) {
+    if (currencies[isoCode]!.isoCode == isoCodeStr.toUpperCase()) {
       return isoCode;
     }
   }
@@ -110,12 +106,12 @@ final Map<Iso4217Code, Currency> currencies = <Iso4217Code, Currency>{
       symbol: r'CHF',
       minorUnit: 'rappen',
       minorFraction: 100),
-  Iso4217Code.chf: const Currency(
-      isoCode: 'CNY',
-      fullName: 'Chinese Yuan Renminbi',
-      symbol: r'¥',
-      minorUnit: 'jiao',
-      minorFraction: 10),
+  // Iso4217Code.chf: const Currency(
+  //     isoCode: 'CNY',
+  //     fullName: 'Chinese Yuan Renminbi',
+  //     symbol: r'¥',
+  //     minorUnit: 'jiao',
+  //     minorFraction: 10),
   Iso4217Code.czk: const Currency(
       isoCode: 'CZK',
       fullName: 'Czech Koruna',
