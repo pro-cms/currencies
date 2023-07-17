@@ -1,4 +1,4 @@
-import 'package:currencies/currencies.dart';
+import 'package:currencies_updated/currencies_updated.dart';
 
 void main(List<String> arguments) {
   // Print US Dollar information
